@@ -63,3 +63,16 @@ The sum of the total number of unique words in each question. In simple terms, f
 
 5. Words Share
 It is one exciting feature and simple to add. To calculate, divide the common words by the total number of words.
+
+# ML Model Creation
+1. Separate the Independent and Dependent features
+First, we need to drop the unnecessary columns and pick the columns needed for training and one target feature (dependent). So we will pick questions in different dataframe for vectorizing and other features in another dataframe with the target variable. And concat them after vectorizing.
+
+2. Vectorizing the Feature
+We need to turn the questions into numerical ones because we can’t provide the string to the model. To do this, we employ a variety of feature vectorizing techniques; for the moment, we’ll use a bag of words (BOW). The bow is a technique for extracting characteristics from text input for machine learning algorithms. It displays the text that describes words’ behavior in the corpus, which entails two things. The first is words’ vocabulary (unique words in the corpus added as a new feature), and the second is a way to count the number of known words (represent the word’s presence in that query using binary format).
+
+3. Train – Test Split
+For calculating the performance of the model, we need some amount of data that the model has not seen as a test set, so we will split the final dataframe into two parts, training and test set, where 80 percent of data in the train set and 20 percent for the test set.
+
+4. Train the Machine Learning Models
+To determine which model works the best, we will train XGboost, and Random Forest both models.
